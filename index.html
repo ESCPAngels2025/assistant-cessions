@@ -13,153 +13,221 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom, #f8f9fa 0%, #e9ecef 100%);
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
+            padding: 40px 20px;
+        }
+
+        .header-bar {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+            padding: 25px 0;
+            box-shadow: 0 4px 15px rgba(30, 58, 138, 0.2);
+            margin-bottom: 50px;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.8em;
+            font-weight: 600;
+            letter-spacing: -0.5px;
         }
 
         .container {
             background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            max-width: 800px;
+            border-radius: 8px;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+            max-width: 1200px;
             width: 100%;
-            padding: 60px 40px;
-            text-align: center;
+            margin: 0 auto;
+            padding: 50px 60px;
         }
 
         h1 {
-            color: #2d3748;
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            font-weight: 700;
+            color: #1e3a8a;
+            font-size: 2.8em;
+            margin-bottom: 15px;
+            font-weight: 600;
+            letter-spacing: -1px;
         }
 
         .subtitle {
-            color: #4a5568;
-            font-size: 1.3em;
-            margin-bottom: 40px;
+            color: #64748b;
+            font-size: 1.2em;
+            margin-bottom: 50px;
             line-height: 1.6;
+            font-weight: 400;
         }
 
-        .features {
-            background: #f7fafc;
-            border-radius: 15px;
-            padding: 30px;
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
             margin: 40px 0;
-            text-align: left;
         }
 
-        .features h2 {
-            color: #2d3748;
-            font-size: 1.5em;
+        .card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: #1e40af;
+            box-shadow: 0 8px 25px rgba(30, 64, 175, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .card h2 {
+            color: #1e3a8a;
+            font-size: 1.4em;
             margin-bottom: 20px;
-            text-align: center;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .features ul {
+        .card-icon {
+            font-size: 1.3em;
+        }
+
+        .card ul {
             list-style: none;
             padding: 0;
         }
 
-        .features li {
-            padding: 12px 0;
-            color: #4a5568;
-            font-size: 1.1em;
+        .card li {
+            padding: 10px 0;
+            color: #475569;
+            font-size: 1em;
+            line-height: 1.5;
             border-bottom: 1px solid #e2e8f0;
         }
 
-        .features li:last-child {
+        .card li:last-child {
             border-bottom: none;
         }
 
-        .features li:before {
-            content: "✅ ";
+        .card li:before {
+            content: "▸";
+            color: #1e40af;
+            font-weight: bold;
+            margin-right: 12px;
+        }
+
+        .examples-section {
+            background: #eff6ff;
+            border: 2px solid #bfdbfe;
+            border-radius: 8px;
+            padding: 35px;
+            margin: 40px 0;
+        }
+
+        .examples-section h3 {
+            color: #1e3a8a;
+            font-size: 1.4em;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .examples-section ul {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .examples-section li {
+            padding: 15px 20px;
+            background: white;
+            border-radius: 6px;
+            color: #334155;
+            border-left: 3px solid #1e40af;
+            font-size: 0.95em;
+            transition: all 0.2s ease;
+        }
+
+        .examples-section li:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(30, 64, 175, 0.15);
+        }
+
+        .examples-section li:before {
+            content: "→";
+            color: #1e40af;
+            font-weight: bold;
             margin-right: 10px;
         }
 
-        .examples {
-            background: #edf2f7;
-            border-radius: 15px;
-            padding: 30px;
-            margin: 30px 0;
-            text-align: left;
-        }
-
-        .examples h3 {
-            color: #2d3748;
-            font-size: 1.3em;
-            margin-bottom: 15px;
+        .cta-section {
             text-align: center;
-        }
-
-        .examples ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .examples li {
-            padding: 10px;
-            margin: 8px 0;
-            background: white;
-            border-radius: 8px;
-            color: #4a5568;
-            font-style: italic;
-        }
-
-        .examples li:before {
-            content: "💬 ";
-            margin-right: 8px;
+            margin: 50px 0 30px 0;
         }
 
         .cta {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
             color: white;
-            padding: 18px 40px;
-            border-radius: 50px;
-            font-size: 1.2em;
+            padding: 18px 50px;
+            border-radius: 6px;
+            font-size: 1.1em;
             font-weight: 600;
             border: none;
             cursor: pointer;
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
-            transition: transform 0.2s, box-shadow 0.2s;
-            margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(30, 58, 138, 0.3);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .cta:hover {
             transform: translateY(-2px);
-            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.5);
+            box-shadow: 0 6px 25px rgba(30, 58, 138, 0.4);
+            background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
         }
 
-        .info {
+        .info-box {
             margin-top: 40px;
-            padding: 20px;
-            background: #fff5f5;
-            border-left: 4px solid #f56565;
-            border-radius: 8px;
-            text-align: left;
+            padding: 25px;
+            background: #fef3c7;
+            border-left: 5px solid #f59e0b;
+            border-radius: 6px;
         }
 
-        .info p {
-            color: #742a2a;
-            line-height: 1.6;
+        .info-box h4 {
+            color: #92400e;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+
+        .info-box p {
+            color: #78350f;
+            line-height: 1.7;
+            font-size: 0.95em;
         }
 
         footer {
-            margin-top: 50px;
+            margin-top: 60px;
             padding-top: 30px;
             border-top: 2px solid #e2e8f0;
-            color: #718096;
+            color: #94a3b8;
             font-size: 0.9em;
+            text-align: center;
         }
 
         @media (max-width: 768px) {
             .container {
-                padding: 40px 20px;
+                padding: 30px 25px;
             }
 
             h1 {
@@ -167,61 +235,82 @@
             }
 
             .subtitle {
-                font-size: 1.1em;
+                font-size: 1em;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .examples-section ul {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
+    <div class="header-bar">
+        <div class="header-content">
+            <div class="logo">🏢 Assistant Analyse Cessions</div>
+        </div>
+    </div>
+
     <div class="container">
-        <h1>🇫🇷 Assistant Analyse Cessions</h1>
-        <p class="subtitle">Analysez les cessions d'entreprises en France</p>
+        <h1>Analysez les cessions d'entreprises en France</h1>
+        <p class="subtitle">Solution professionnelle d'analyse de données pour les transactions d'entreprises sur le territoire français</p>
 
-        <div class="features">
-            <h2>📊 Je peux calculer pour vous :</h2>
-            <ul>
-                <li>Prix moyen de cession</li>
-                <li>Prix médian de cession</li>
-                <li>Nombre de transactions</li>
-                <li>Ratio Prix/CA (en %)</li>
-                <li>Multiple EBE</li>
-            </ul>
+        <div class="grid">
+            <div class="card">
+                <h2><span class="card-icon">📊</span> Indicateurs clés</h2>
+                <ul>
+                    <li>Prix moyen de cession</li>
+                    <li>Prix médian de cession</li>
+                    <li>Nombre de transactions</li>
+                    <li>Ratio Prix/CA (en %)</li>
+                    <li>Multiple EBE</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2><span class="card-icon">🔍</span> Critères de filtrage</h2>
+                <ul>
+                    <li>Par région géographique</li>
+                    <li>Par département</li>
+                    <li>Par ville</li>
+                    <li>Par domaine d'activité</li>
+                    <li>Par code NAF</li>
+                    <li>Par période</li>
+                    <li>Par effectif (< 20 ou ≥ 20 salariés)</li>
+                </ul>
+            </div>
         </div>
 
-        <div class="features">
-            <h2>🔍 Filtrez par :</h2>
-            <ul>
-                <li>Région</li>
-                <li>Département</li>
-                <li>Ville</li>
-                <li>Domaine d'activité</li>
-                <li>Code NAF</li>
-                <li>Période (dates)</li>
-                <li>Effectif (< 20 ou > 20 salariés)</li>
-            </ul>
-        </div>
-
-        <div class="examples">
-            <h3>💡 Exemples de recherches :</h3>
+        <div class="examples-section">
+            <h3>💼 Exemples d'analyses disponibles</h3>
             <ul>
                 <li>Prix moyen des boulangeries</li>
                 <li>Transactions en Hauts-de-France</li>
                 <li>Cessions dans le commerce</li>
                 <li>Toutes les transactions en Occitanie</li>
+                <li>Restaurants avec moins de 20 salariés</li>
+                <li>Analyse par code NAF spécifique</li>
             </ul>
         </div>
 
-        <button class="cta" onclick="alert('Le chatbot va apparaître en bas à droite de votre écran ! 💬\n\nCliquez sur l\'icône du chat pour commencer.')">
-            🚀 Lancer l'Assistant
-        </button>
+        <div class="cta-section">
+            <button class="cta" onclick="alert('Le chatbot va apparaître en bas à droite de votre écran.\n\nCliquez sur l\'icône pour démarrer votre analyse.')">
+                Lancer l'analyse
+            </button>
+        </div>
 
-        <div class="info">
-            <p><strong>💬 Comment ça marche ?</strong></p>
-            <p>Le chatbot apparaît en bas à droite de votre écran. Cliquez sur l'icône pour démarrer une conversation et poser vos questions sur les cessions d'entreprises en France.</p>
+        <div class="info-box">
+            <h4>💬 Mode d'emploi</h4>
+            <p>Notre assistant conversationnel apparaît en bas à droite de votre écran. Cliquez sur l'icône pour démarrer une session d'analyse. Posez vos questions en langage naturel et obtenez des données précises sur les cessions d'entreprises en France.</p>
         </div>
 
         <footer>
-            <p>Propulsé par Voiceflow | Données de cessions d'entreprises</p>
+            <p>Propulsé par Voiceflow | Données officielles de cessions d'entreprises en France</p>
+            <p style="margin-top: 10px; font-size: 0.85em;">© 2025 - Solution d'analyse professionnelle</p>
         </footer>
     </div>
 
