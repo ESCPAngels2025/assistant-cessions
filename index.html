@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assistant Analyse Cessions</title>
+    <meta name="description" content="Analysez les cessions d'entreprises en France">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom, #f8f9fa 0%, #e9ecef 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .header-bar {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+            padding: 25px 0;
+            box-shadow: 0 4px 15px rgba(30, 58, 138, 0.2);
+            margin-bottom: 50px;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.8em;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 50px 60px;
+        }
+
+        h1 {
+            color: #1e3a8a;
+            font-size: 2.8em;
+            margin-bottom: 15px;
+            font-weight: 600;
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            color: #64748b;
+            font-size: 1.2em;
+            margin-bottom: 50px;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: #1e40af;
+            box-shadow: 0 8px 25px rgba(30, 64, 175, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .card h2 {
+            color: #1e3a8a;
+            font-size: 1.4em;
+            margin-bottom: 20px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-icon {
+            font-size: 1.3em;
+        }
+
+        .card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .card li {
+            padding: 10px 0;
+            color: #475569;
+            font-size: 1em;
+            line-height: 1.5;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .card li:last-child {
+            border-bottom: none;
+        }
+
+        .card li:before {
+            content: "▸";
+            color: #1e40af;
+            font-weight: bold;
+            margin-right: 12px;
+        }
+
+        .examples-section {
+            background: #eff6ff;
+            border: 2px solid #bfdbfe;
+            border-radius: 8px;
+            padding: 35px;
+            margin: 40px 0;
+        }
+
+        .examples-section h3 {
+            color: #1e3a8a;
+            font-size: 1.4em;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .examples-section ul {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .examples-section li {
+            padding: 15px 20px;
+            background: white;
+            border-radius: 6px;
+            color: #334155;
+            border-left: 3px solid #1e40af;
+            font-size: 0.95em;
+            transition: all 0.2s ease;
+        }
+
+        .examples-section li:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(30, 64, 175, 0.15);
+        }
+
+        .examples-section li:before {
+            content: "→";
+            color: #1e40af;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .cta-section {
+            text-align: center;
+            margin: 50px 0 30px 0;
+        }
+
+        .cta {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+            color: white;
+            padding: 18px 50px;
+            border-radius: 6px;
+            font-size: 1.1em;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(30, 58, 138, 0.3);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(30, 58, 138, 0.4);
+            background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+        }
+
+        .info-box {
+            margin-top: 40px;
+            padding: 25px;
+            background: #fef3c7;
+            border-left: 5px solid #f59e0b;
+            border-radius: 6px;
+        }
+
+        .info-box h4 {
+            color: #92400e;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+
+        .info-box p {
+            color: #78350f;
+            line-height: 1.7;
+            font-size: 0.95em;
+        }
+
+        footer {
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 2px solid #e2e8f0;
+            color: #94a3b8;
+            font-size: 0.9em;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 25px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .subtitle {
+                font-size: 1em;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .examples-section ul {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-bar">
+        <div class="header-content">
+            <div class="logo">🏢 Assistant Analyse Cessions</div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>Analysez les cessions d'entreprises en France</h1>
+        <p class="subtitle">Solution professionnelle d'analyse de données pour les transactions d'entreprises sur le territoire français</p>
+
+        <div class="grid">
+            <div class="card">
+                <h2><span class="card-icon">📊</span> Indicateurs clés</h2>
+                <ul>
+                    <li>Prix moyen de cession</li>
+                    <li>Prix médian de cession</li>
+                    <li>Nombre de transactions</li>
+                    <li>Ratio Prix/CA (en %)</li>
+                    <li>Multiple EBE</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2><span class="card-icon">🔍</span> Critères de filtrage</h2>
+                <ul>
+                    <li>Par région géographique</li>
+                    <li>Par département</li>
+                    <li>Par ville</li>
+                    <li>Par domaine d'activité</li>
+                    <li>Par code NAF</li>
+                    <li>Par période</li>
+                    <li>Par effectif (< 20 ou ≥ 20 salariés)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="examples-section">
+            <h3>💼 Exemples d'analyses disponibles</h3>
+            <ul>
+                <li>Prix moyen des boulangeries</li>
+                <li>Transactions en Hauts-de-France</li>
+                <li>Cessions dans le commerce</li>
+                <li>Toutes les transactions en Occitanie</li>
+                <li>Restaurants avec moins de 20 salariés</li>
+                <li>Analyse par code NAF spécifique</li>
+            </ul>
+        </div>
+
+        <div class="cta-section">
+            <button class="cta" onclick="alert('Le chatbot va apparaître en bas à droite de votre écran.\n\nCliquez sur l\'icône pour démarrer votre analyse.')">
+                Lancer l'analyse
+            </button>
+        </div>
+
+        <div class="info-box">
+            <h4>💬 Mode d'emploi</h4>
+            <p>Notre assistant conversationnel apparaît en bas à droite de votre écran. Cliquez sur l'icône pour démarrer une session d'analyse. Posez vos questions en langage naturel et obtenez des données précises sur les cessions d'entreprises en France.</p>
+        </div>
+
+        <footer>
+            <p>Propulsé par Voiceflow | Données officielles de cessions d'entreprises en France</p>
+            <p style="margin-top: 10px; font-size: 0.85em;">© 2025 - Solution d'analyse professionnelle</p>
+        </footer>
+    </div>
+
+    <!-- Voiceflow Widget -->
+    <script type="text/javascript">
+      (function(d, t) {
+          var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+          v.onload = function() {
+            window.voiceflow.chat.load({
+              verify: { projectID: '6903147226086c5918301df2' },
+              url: 'https://general-runtime.voiceflow.com',
+              versionID: 'production'
+            });
+          }
+          v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; 
+          v.type = "text/javascript"; 
+          s.parentNode.insertBefore(v, s);
+      })(document, 'script');
+    </script>
+</body>
+</html>
